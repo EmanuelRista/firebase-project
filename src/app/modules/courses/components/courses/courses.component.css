@@ -1,0 +1,7 @@
+.img-product-list {
+  width: 100% !important;
+}
+
+.flexible {
+  flex-grow: 1;
+}
