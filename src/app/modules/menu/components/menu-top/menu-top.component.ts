@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SocialAuthService, GoogleLoginProvider, SocialUser } from 'angularx-social-login';
+
 
 @Component({
   selector: 'app-menu-top',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuTopComponent implements OnInit {
 
-  constructor() { }
+
+
+  constructor(private socialAuthService: SocialAuthService) { }
 
   ngOnInit(): void {
+
+  }
+
+  logOut(): void {
+    this.socialAuthService.signOut();
   }
 
 }

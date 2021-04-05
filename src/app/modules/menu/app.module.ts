@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { MaterialModule } from 'src/app/material/material.module';
 import { MenuTopComponent } from './components/menu-top/menu-top.component';
@@ -7,7 +8,7 @@ import { MenuTopComponent } from './components/menu-top/menu-top.component';
   declarations: [
     MenuTopComponent
   ],
-  imports: [MaterialModule, AppRoutingModule],
+  imports: [MaterialModule, AppRoutingModule, BrowserModule],
   exports: [MenuTopComponent],
   providers: [],
   bootstrap: []
