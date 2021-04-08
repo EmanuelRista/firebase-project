@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SocialAuthService, GoogleLoginProvider, SocialUser } from 'angularx-social-login';
+import { LoginService } from '../../../authen/services/login.service';
 
 
 @Component({
@@ -9,16 +9,26 @@ import { SocialAuthService, GoogleLoginProvider, SocialUser } from 'angularx-soc
 })
 export class MenuTopComponent implements OnInit {
 
+  public loggedUser: any;
 
-
-  constructor(private socialAuthService: SocialAuthService) { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
+
+    this.loginService.$getLoggedUserEvent.subscribe((user) => {
+      this.loggedUser = user;
+      console.log('>>>>>', user);
+    })
+
+    this.loginService.getUser().then((user) => {
+      this.loggedUser = user;
+    })
 
   }
 
   logOut(): void {
-    this.socialAuthService.signOut();
+    this.loginService.logOut();
+    this.loggedUser = null;
   }
 
 }

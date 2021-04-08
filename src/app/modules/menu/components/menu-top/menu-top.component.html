@@ -5,8 +5,8 @@
     </button>
     <a mat-button [routerLink]="'/'">Home</a>
     <a mat-button [routerLink]="'/courses'">Courses</a>
-    <a mat-button [routerLink]="'/login'">Login</a>
-    <a mat-button [matMenuTriggerFor]="Menu"> University Code </a>
+    <a mat-button *ngIf="!loggedUser" [routerLink]="'/login'">Login</a>
+    <a mat-button *ngIf="loggedUser" [matMenuTriggerFor]="Menu"> {{ loggedUser.name }} </a>
     <mat-menu #Menu="matMenu">
       <button mat-menu-item [routerLink]="'/orders'">Orders</button>
       <button mat-menu-item [routerLink]="'/admin-courses'">Admin courses</button>
